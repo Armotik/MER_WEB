@@ -12,6 +12,7 @@
 Date - Commit
 -----------------
 15/11/2023 - Initialisation du projet
+15/11/2023 - Initialisation de la base de donnée (modèle -> bdd.sql), création des entités et des repositories, amélioration de la page d'accueil
 ```
 
 ---
@@ -40,21 +41,39 @@ MER_WEB
 ├── config (dossier de configuration)
 ├── public
 │   ├── images
+│   │   └── logo_v1_bgr.png
 │   ├── css
-│   ├── js
+│   │   ├── style.css
+│   │   └── normalize.css
 │   └── index.php
 ├── src
 │   ├── Controller
+│   │   ├── ArticlesController.php
 │   │   └── DefaultController.php
+│   ├── Entity
+│   │   ├── Author.php
+│   │   ├── Article.php
+│   │   └── ArtCategory.php
+│   ├── Repository
+│   │   ├── AuthorRepository.php
+│   │   ├── ArticleRepository.php
+│   │   └── ArtCategoryRepository.php
 │   └── Kernel.php
 ├── templates
+│   ├── articles
+│   │   └── index.html.twig
 │   ├── default
+│   │   ├── mentions.html.twig
+│   │   ├── politique.html.twig
+│   │   ├── plan.html.twig
+│   │   ├── contacts.html.twig
 │   │   └── index.html.twig
 │   └── base.html.twig
 ├── var (dossier de cache)
 ├── vendor (dossier de dépendances)
 ├── .env (fichier de configuration)
 ├── .env.local (fichier de configuration)
+├── bdd.sql (fichier de base de données)
 ├── readme.md (fichier de description)
 ├── composer.json (fichier de configuration)
 └── composer.lock (fichier de configuration)

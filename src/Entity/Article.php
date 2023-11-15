@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,18 @@ class Article
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $thumbnail_url = null;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ArtCategory $id_category = null;
+
+    #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'articles')]
+    private Collection $author;
+
+    public function __construct()
+    {
+        $this->author = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -82,6 +96,42 @@ class Article
     public function setThumbnailUrl(?string $thumbnail_url): static
     {
         $this->thumbnail_url = $thumbnail_url;
+
+        return $this;
+    }
+
+    public function getIdCategory(): ?ArtCategory
+    {
+        return $this->id_category;
+    }
+
+    public function setIdCategory(?ArtCategory $id_category): static
+    {
+        $this->id_category = $id_category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Author>
+     */
+    public function getAuthor(): Collection
+    {
+        return $this->author;
+    }
+
+    public function addAuthor(Author $author): static
+    {
+        if (!$this->author->contains($author)) {
+            $this->author->add($author);
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(Author $author): static
+    {
+        $this->author->removeElement($author);
 
         return $this;
     }
