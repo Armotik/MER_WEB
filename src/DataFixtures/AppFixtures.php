@@ -76,8 +76,11 @@ class AppFixtures extends Fixture
         $art1->setDate(new \DateTime());
         $art1->setThumbnailUrl("https://picsum.photos/600/400?random=1");
         $art1->addAuthor($author1);
+<<<<<<< HEAD
         $art1->setFeatured(true);
         $art1->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $art2 = new Article();
         $art2->setTitle('Lorem ipsum');
@@ -86,6 +89,7 @@ class AppFixtures extends Fixture
         $art2->setDate(new \DateTime());
         $art2->setThumbnailUrl("https://picsum.photos/600/400?random=2");
         $art2->addAuthor($author2);
+<<<<<<< HEAD
         $art2->setFeatured(true);
         $art2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
 
@@ -108,6 +112,8 @@ class AppFixtures extends Fixture
         $art4->addAuthor($author2);
         $art4->setFeatured(false);
         $art4->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $manager->persist($cat1);
         $manager->persist($cat2);
@@ -124,8 +130,11 @@ class AppFixtures extends Fixture
 
         $manager->persist($art1);
         $manager->persist($art2);
+<<<<<<< HEAD
         $manager->persist($art3);
         $manager->persist($art4);
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $manager->flush();
     }

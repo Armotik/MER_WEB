@@ -35,12 +35,15 @@ class Article
     #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'articles')]
     private Collection $author;
 
+<<<<<<< HEAD
     #[ORM\Column]
     private ?bool $featured = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
     public function __construct()
     {
         $this->author = new ArrayCollection();
@@ -141,6 +144,7 @@ class Article
 
         return $this;
     }
+<<<<<<< HEAD
 
     public function isFeatured(): ?bool
     {
@@ -165,4 +169,6 @@ class Article
 
         return $this;
     }
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 }

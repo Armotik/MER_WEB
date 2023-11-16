@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="MessDetectorOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
@@ -10,6 +11,8 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -85,10 +88,13 @@
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
+<<<<<<< HEAD
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
   <component name="PsalmOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 </project>

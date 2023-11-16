@@ -13,6 +13,7 @@ Date - Commit
 -----------------
 15/11/2023 - Initialisation du projet
 15/11/2023 - Initialisation de la base de donnée (modèle -> bdd.sql), création des entités et des repositories, amélioration de la page d'accueil
+<<<<<<< HEAD
 16/11/2023 - Finalisation de la page principale, ajout de nouveaux attributs à la table article, création d'un controller pour les catégories.
 ```
 
@@ -40,7 +41,10 @@ MER_WEB
 ├── bin
 │   └── console
 ├── config (dossier de configuration)
+<<<<<<< HEAD
 ├── migrations (dossier de migrations)
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 ├── public
 │   ├── images
 │   │   └── logo_v1_bgr.png
@@ -51,10 +55,14 @@ MER_WEB
 ├── src
 │   ├── Controller
 │   │   ├── ArticlesController.php
+<<<<<<< HEAD
 │   │   ├── CategoriesController.php
 │   │   └── DefaultController.php
 │   ├── DataFixtures
 │   │   └── AppFixtures.php
+=======
+│   │   └── DefaultController.php
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 │   ├── Entity
 │   │   ├── Author.php
 │   │   ├── Article.php
@@ -67,8 +75,11 @@ MER_WEB
 ├── templates
 │   ├── articles
 │   │   └── index.html.twig
+<<<<<<< HEAD
 │   ├── categories
 │   │   └── index.html.twig
+=======
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 │   ├── default
 │   │   ├── mentions.html.twig
 │   │   ├── politique.html.twig
@@ -98,7 +109,11 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
+<<<<<<< HEAD
 Dernière mise à jour : 16/11/2023
+=======
+Dernière mise à jour : 15/11/2023
+>>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
 Bureau Des Étudiants La Rochelle Université
 
