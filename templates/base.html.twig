@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MER {% block title %}{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    {% block stylesheets %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    {% block javascripts %}
+    {% endblock %}
+</head>
+<body>
+<div class="container border-bottom mb-3">
+    <header class="blog-header-logo py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="link-body-emphasis" href="#">Donations</a>
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark h1 main-title" href="{{ path('app_default') }}">Média Étudiant Rochelais</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a href="#" class="link-secondary" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                         stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24" focusable="false"><title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Connexion</a>
+            </div>
+        </div>
+    </header>
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            {% for category in categories %}
+                <a class="p-2 link-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ path('app_categories_category', {'categoryName': category.name}) }}">{{ category.name }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+
+{% block body %}{% endblock %}
+
+<footer class="blog-footer">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 MER</p>
+            <a href="{{ path('app_default') }}"
+               class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img src="{{ asset('img/logo_v1_bgr.png') }}" alt="logo_type" class="bi me-2" width="160"
+                     height="128">
+            </a>
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="{{ path('app_default') }}" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+                <li class="nav-item"><a href="{{ path('app_plan') }}" class="nav-link px-2 text-body-secondary">Plan du site</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Donations</a></li>
+                <li class="nav-item"><a href="{{ path('app_mentions') }}" class="nav-link px-2 text-body-secondary">Mentions légales</a></li>
+                <li class="nav-item"><a href="{{ path('app_politique') }}" class="nav-link px-2 text-body-secondary">Politique de confidentialité</a></li>
+                <li class="nav-item"><a href="{{ path('app_contacts') }}" class="nav-link px-2 text-body-secondary">Contacts</a></li>
+            </ul>
+        </footer>
+    </div>
+</footer>
+</body>
+</html>
