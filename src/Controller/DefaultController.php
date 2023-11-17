@@ -3,10 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArtCategoryRepository;
-<<<<<<< HEAD
 use App\Repository\ArticleRepository;
-=======
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     #[Route('/', name: 'app_default')]
-<<<<<<< HEAD
     public function index(ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {
 
@@ -66,17 +62,10 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/index.html.twig', [
-            'categories' => $artCategoryRepository->findAll(),
-            'lastTwoFeaturedArticles' => $lastTwoFeaturedArticles,
-            'lastTenArticles' => $lastTenArticles,
-=======
-    public function index(ArtCategoryRepository $artCategoryRepository): Response
-    {
-
-        return $this->render('default/index.html.twig', [
-            'categories' => $artCategoryRepository->findAll(),
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
-        ]);
+                'categories' => $artCategoryRepository->findAll(),
+                'lastTwoFeaturedArticles' => $lastTwoFeaturedArticles,
+                'lastTenArticles' => $lastTenArticles,]
+        );
     }
 
     #[Route('/plan_du_site', name: 'app_plan')]

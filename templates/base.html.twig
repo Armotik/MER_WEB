@@ -28,11 +28,7 @@
     {% endblock %}
 </head>
 <body>
-<<<<<<< HEAD
-<div class="container border-bottom mb-3">
-=======
 <div class="container">
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
     <header class="blog-header-logo py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
@@ -55,14 +51,10 @@
             </div>
         </div>
     </header>
-    <div class="nav-scroller py-1 mb-2">
+    <div class="nav-scroller py-1 mb-2 border-bottom">
         <nav class="nav d-flex justify-content-between">
             {% for category in categories %}
-<<<<<<< HEAD
                 <a class="p-2 link-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ path('app_categories_category', {'categoryName': category.name}) }}">{{ category.name }}</a>
-=======
-                <a class="p-2 link-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">{{ category.name }}</a>
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
             {% endfor %}
         </nav>
     </div>

@@ -5,107 +5,99 @@
 {% block body %}
 
     <main class="container">
-<<<<<<< HEAD
-        <div class="p-4 p-md-5 mb-4 text-white rounded"
-             style="background-image: url(https://www.univ-larochelle.fr/wp-content/uploads/jpg/page-daccueil-321.jpg); background-position: center left; border-radius: 8px">
-=======
-        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
-            <div class="col-md-6 px-0">
-                <h1 class="display-4 fst-italic">Média Étudiant Rochelais (MER)</h1>
-                <p class="lead my-3">Le site d'information des étudiants de La Rochelle</p>
-                <p class="lead mb-0">
-<<<<<<< HEAD
-                    <a href="#" class="text-white fw-bold">Découvrez-nous ...</a>
-                </p>
+        <div class="p-4 p-md-5 mb-4 text-black rounded">
+            <div class="p-4 p-md-5 mb-4 text-white rounded" style="background-image: url(https://www.univ-larochelle.fr/wp-content/uploads/jpg/page-daccueil-321.jpg); background-position: center left; border-radius: 8px">
+                <div class="col-md-6 px-0">
+                    <h1 class="display-4 fst-italic">Média Étudiant Rochelais (MER)</h1>
+                    <p class="lead my-3">Le site d'information des étudiants de La Rochelle</p>
+                    <p class="lead mb-0">
+                        <a href="#" class="text-white fw-bold">Découvrez-nous ...</a>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="row mb-2">
+            <div class="row mb-2">
 
-            {% for article in lastTwoFeaturedArticles %}
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2"
-                                    style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
-                            <h3 class="mb-0">{{ article.title }}</h3>
-                            <div class="mb-1 text-muted">{{ article.date|date('d M', "Europe/Paris") }}</div>
-                            <p class="card-text mb-auto">{{ article.content|striptags|slice(0, 150) }}...</p>
-                            <a href="#" class="stretched-link">Continuez à lire...</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="{{ article.thumbnailurl }}" alt="image de l'article"
-                                 style="width: 200px; height: 250px; object-fit: cover">
+                {% for article in lastTwoFeaturedArticles %}
+                    <div class="col-md-6">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2"
+                                        style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
+                                <h3 class="mb-0">{{ article.title }}</h3>
+                                <div class="mb-1 text-muted">{{ article.date|date('d M', "Europe/Paris") }}</div>
+                                <p class="card-text mb-auto">{{ article.content|striptags|slice(0, 150) }}...</p>
+                                <a href="{{ path('app_articles', {'name': article.title}) }}" class="stretched-link">Continuez à lire...</a>
+                            </div>
+                            <div class="col-auto d-none d-lg-block">
+                                <img src="{{ article.thumbnailurl }}" alt="image de l'article"
+                                     style="width: 200px; height: 250px; object-fit: cover">
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="row g-5">
-            <div class="col-md-8 mt-3">
-                <h3 class="pb-4 mt-5 fst-italic border-bottom">Les derniers articles</h3>
-
-                {% for article in lastTenArticles %}
-
-                    <article class="blog-post mt-5 mb-5">
-                        <h2 class="blog-post-title">{{ article.title }}</h2>
-                        <p class="blog-post-meta">
-                            <strong class="d-inline-block mb-2"
-                                    style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
-                            |
-                            {{ article.date|date('d M Y', "Europe/Paris") }} par
-
-                            {% for author in article.author %}
-                                {% if article.author|length == 1 %}
-                                    {{ author.firstname }} {{ author.name }}
-                                {% else %}
-                                    <a href="#"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} {% if not loop.last %}</a>, {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        </p>
-
-                        <p>{{ article.description }}</p>
-                        <hr>
-                        <p>{{ article.content|striptags }}</p>
-                    </article>
-
-                    {% if not loop.last %}
-                        <hr>{% endif %}
                 {% endfor %}
             </div>
-            <div class="col-md-4">
-                <div class="position-sticky" style="top:2rem;">
-                    <div class="p-4 mb-3 bg-light rounded">
-                        <h4 class="fst-italic">À propos</h4>
-                        <p class="mb-0">
-                            Le Média Étudiant Rochelais (MER) est un site d'information créé par des
-                            étudiants de l'Université de La Rochelle. Il a pour but de vous informer sur les
-                            évènements de la vie étudiante de La Rochelle.
-                        </p>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="fst-italic">Archives</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li class="mb-2"><a href="#">2023</a></li>
-                        </ol>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="fst-italic">Contacts</h4>
-                        <ol class="list-unstyled">
-                            <li class="mb-2"><a href="#">Instagram</a></li>
-                            <li class="mb-2"><a href="#">Discord</a></li>
-                            <li class="mb-2"><a href="#">Twitter</a></li>
-                        </ol>
+            <div class="row g-5">
+                <div class="col-md-8 mt-3">
+                    <h3 class="pb-4 mt-5 fst-italic border-bottom">Les derniers articles</h3>
+
+                    {% for article in lastTenArticles %}
+
+                        <article class="blog-post mt-5 mb-5">
+                            <h2 class="blog-post-title">{{ article.title }}</h2>
+                            <p class="blog-post-meta">
+                                <strong class="d-inline-block mb-2"
+                                        style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
+                                |
+                                {{ article.date|date('d M Y', "Europe/Paris") }} par
+
+                                {% for author in article.author %}
+                                    {% if article.author|length == 1 %}
+                                        {{ author.firstname }} {{ author.name }}
+                                    {% else %}
+                                        <a href="#"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} {% if not loop.last %}</a>, {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+
+                            <p>{{ article.description }}</p>
+                            <hr>
+                            <p>{{ article.content|striptags }}</p>
+                        </article>
+
+                        {% if not loop.last %}<hr>{% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top:2rem;">
+                        <div class="p-4 mb-3 bg-light rounded">
+                            <h4 class="fst-italic">À propos</h4>
+                            <p class="mb-0">
+                                Le Média Étudiant Rochelais (MER) est un site d'information créé par des
+                                étudiants de l'Université de La Rochelle. Il a pour but de vous informer sur les
+                                évènements de la vie étudiante de La Rochelle.
+                            </p>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fst-italic">Archives</h4>
+                            <ol class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="{{ path('app_archive', {'year': 2023}) }}">2023</a></li>
+                            </ol>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fst-italic">Contacts</h4>
+                            <ol class="list-unstyled">
+                                <li class="mb-2"><a href="#">Instagram</a></li>
+                                <li class="mb-2"><a href="#">Discord</a></li>
+                                <li class="mb-2"><a href="#">Twitter</a></li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
+            <a href="#" class="text-white fw-bold">Continuez à lire...</a>
+            </p>
         </div>
-=======
-                    <a href="#" class="text-white fw-bold">Continuez à lire...</a>
-                </p>
-            </div>
         </div>
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
     </main>
 
 {% endblock %}

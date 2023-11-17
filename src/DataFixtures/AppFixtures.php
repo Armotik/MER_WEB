@@ -70,31 +70,27 @@ class AppFixtures extends Fixture
         $author2->setPhone('0707070707');
 
         $art1 = new Article();
-        $art1->setTitle('Lorem ipsum');
+        $art1->setTitle('Lorem ipsum 1');
         $art1->setContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl. Nullam sed scelerisque justo. Cras non nunc vel nunc luctus dictum. Morbi nec ante sit amet sem consectetur viverra. Phasellus non sapien id nibh aliquet posuere. Vivamus in mauris et dolor lacinia congue. Mauris mollis, risus a aliquet convallis, nisi dui feugiat justo, vitae pretium eros justo ut diam. Sed quis odio non enim porta eleifend. Proin nec justo ut diam pretium faucibus. Duis euismod, massa eget faucibus porttitor, odio metus tincidunt mauris, nec placerat risus nibh eget neque. Mauris tempus, nulla nec dignissim lacinia, leo ante lacinia nunc, at consequat sem lorem quis lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras auctor, felis et elementum vehicula, orci ante aliquam mauris, id scelerisque dui lorem vel lacus. Sed in eros id ex tincidunt iaculis.');
         $art1->setIdCategory($cat1);
         $art1->setDate(new \DateTime());
         $art1->setThumbnailUrl("https://picsum.photos/600/400?random=1");
         $art1->addAuthor($author1);
-<<<<<<< HEAD
         $art1->setFeatured(true);
         $art1->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
-=======
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $art2 = new Article();
-        $art2->setTitle('Lorem ipsum');
+        $art2->setTitle('Lorem ipsum 2');
         $art2->setContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl. Nullam sed scelerisque justo. Cras non nunc vel nunc luctus dictum. Morbi nec ante sit amet sem consectetur viverra. Phasellus non sapien id nibh aliquet posuere. Vivamus in mauris et dolor lacinia congue. Mauris mollis, risus a aliquet convallis, nisi dui feugiat justo, vitae pretium eros justo ut diam. Sed quis odio non enim porta eleifend. Proin nec justo ut diam pretium faucibus. Duis euismod, massa eget faucibus porttitor, odio metus tincidunt mauris, nec placerat risus nibh eget neque. Mauris tempus, nulla nec dignissim lacinia, leo ante lacinia nunc, at consequat sem lorem quis lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras auctor, felis et elementum vehicula, orci ante aliquam mauris, id scelerisque dui lorem vel lacus. Sed in eros id ex tincidunt iaculis.');
         $art2->setIdCategory($cat2);
         $art2->setDate(new \DateTime());
         $art2->setThumbnailUrl("https://picsum.photos/600/400?random=2");
         $art2->addAuthor($author2);
-<<<<<<< HEAD
         $art2->setFeatured(true);
         $art2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
 
         $art3 = new Article();
-        $art3->setTitle('Lorem ipsum');
+        $art3->setTitle('Lorem ipsum 3');
         $art3->setContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl. Nullam sed scelerisque justo. Cras non nunc vel nunc luctus dictum. Morbi nec ante sit amet sem consectetur viverra. Phasellus non sapien id nibh aliquet posuere. Vivamus in mauris et dolor lacinia congue. Mauris mollis, risus a aliquet convallis, nisi dui feugiat justo, vitae pretium eros justo ut diam. Sed quis odio non enim porta eleifend. Proin nec justo ut diam pretium faucibus. Duis euismod, massa eget faucibus porttitor, odio metus tincidunt mauris, nec placerat risus nibh eget neque. Mauris tempus, nulla nec dignissim lacinia, leo ante lacinia nunc, at consequat sem lorem quis lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras auctor, felis et elementum vehicula, orci ante aliquam mauris, id scelerisque dui lorem vel lacus. Sed in eros id ex tincidunt iaculis.');
         $art3->setIdCategory($cat3);
         $art3->setDate(new \DateTime());
@@ -104,7 +100,7 @@ class AppFixtures extends Fixture
         $art3->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
 
         $art4 = new Article();
-        $art4->setTitle('Lorem ipsum');
+        $art4->setTitle('Lorem ipsum 4');
         $art4->setContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl. Nullam sed scelerisque justo. Cras non nunc vel nunc luctus dictum. Morbi nec ante sit amet sem consectetur viverra. Phasellus non sapien id nibh aliquet posuere. Vivamus in mauris et dolor lacinia congue. Mauris mollis, risus a aliquet convallis, nisi dui feugiat justo, vitae pretium eros justo ut diam. Sed quis odio non enim porta eleifend. Proin nec justo ut diam pretium faucibus. Duis euismod, massa eget faucibus porttitor, odio metus tincidunt mauris, nec placerat risus nibh eget neque. Mauris tempus, nulla nec dignissim lacinia, leo ante lacinia nunc, at consequat sem lorem quis lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras auctor, felis et elementum vehicula, orci ante aliquam mauris, id scelerisque dui lorem vel lacus. Sed in eros id ex tincidunt iaculis.');
         $art4->setIdCategory($cat4);
         $art4->setDate(new \DateTime());
@@ -112,8 +108,6 @@ class AppFixtures extends Fixture
         $art4->addAuthor($author2);
         $art4->setFeatured(false);
         $art4->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
-=======
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $manager->persist($cat1);
         $manager->persist($cat2);
@@ -130,11 +124,8 @@ class AppFixtures extends Fixture
 
         $manager->persist($art1);
         $manager->persist($art2);
-<<<<<<< HEAD
         $manager->persist($art3);
         $manager->persist($art4);
-=======
->>>>>>> 47aea3b16656caf16336591b71de7deb30350541
 
         $manager->flush();
     }

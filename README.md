@@ -14,6 +14,7 @@ Date - Commit
 15/11/2023 - Initialisation du projet
 15/11/2023 - Initialisation de la base de donnée (modèle -> bdd.sql), création des entités et des repositories, amélioration de la page d'accueil
 16/11/2023 - Finalisation de la page principale, ajout de nouveaux attributs à la table article, création d'un controller pour les catégories.
+17/11/2023 - Correction des problèmes liés au dernier dépot git, finalisation des pages d'archives, de catégories et d'articles
 ```
 
 ---
@@ -52,6 +53,7 @@ MER_WEB
 │   ├── Controller
 │   │   ├── ArticlesController.php
 │   │   ├── CategoriesController.php
+│   │   ├── ArchivesController.php
 │   │   └── DefaultController.php
 │   ├── DataFixtures
 │   │   └── AppFixtures.php
@@ -67,6 +69,8 @@ MER_WEB
 │   └── Kernel.php
 ├── templates
 │   ├── articles
+│   │   └── index.html.twig
+   ├── archives
 │   │   └── index.html.twig
 │   ├── categories
 │   │   └── index.html.twig
@@ -91,7 +95,7 @@ MER_WEB
 
 ### <ins>**Auteurs :**</ins>
 
--   [**Armotik**](github.com/Armotik)
+-   [**Armotik**](https://github.com/Armotik)
 
 ---
 
@@ -99,9 +103,7 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
-Dernière mise à jour : 16/11/2023
-=======
-Dernière mise à jour : 15/11/2023
+Dernière mise à jour : 17/11/2023
 
 Bureau Des Étudiants La Rochelle Université
 

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}| {{ article.title }} {% endblock %}
+
+{% block body %}
+
+    <main class="container">
+        <article class="blog-post mt-5">
+            <h2 class="text-center blog-post-title">{{ article.title }}</h2>
+            <p class="blog-post-meta">
+                <strong class="d-inline-block mb-2"
+                style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong> |
+                {{ article.date|date('d/m/Y') }}
+            </p>
+
+            <p class="mb-5">{{ article.description }}</p>
+            <hr>
+            <p class="lh-lg mt-5 mb-5">{{ article.content|striptags }}</p>
+
+            <hr>
+            <p class="blog-post-meta text-end mt-5 mb-5">
+                écrit par
+
+                {% for author in article.author %}
+                    {% if article.author|length == 1 %}
+                        <a href="#" class="link-secondary"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %}</a>
+                    {% else %}
+                        <a href="#" class="link-secondary"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} {% if not loop.last %}</a>, {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+            </p>
+        </article>
+    </main>
+
+{% endblock %}
