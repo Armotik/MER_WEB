@@ -47,7 +47,11 @@
                         <path d="M21 21l-5.2-5.2"></path>
                     </svg>
                 </a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">Connexion</a>
+                {% if app.user %}
+                    <a class="btn btn-ssm btn-outline-secondary" href="#">Compte</a>
+                {% else %}
+                    <a class="btn btn-sm btn-outline-secondary" href="{{ path('app_login') }}">Connexion</a>
+                {% endif %}
             </div>
         </div>
     </header>

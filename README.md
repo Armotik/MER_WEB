@@ -16,6 +16,7 @@ Date - Commit
 16/11/2023 - Finalisation de la page principale, ajout de nouveaux attributs à la table article, création d'un controller pour les catégories.
 17/11/2023 - Correction des problèmes liés au dernier dépot git, finalisation des pages d'archives, de catégories et d'articles
 23/11/2023 - Ajout de la page de mentions légales et de la page du plan du site
+23/11/2023 - Ajout de la page de contact, initialisation de la partie connexion, ajoute de la page de connexion ainsi que d'un nouveau controller. Création d'une nouvelle entité et d'un nouveau repository. 
 ```
 
 ---
@@ -55,6 +56,7 @@ MER_WEB
 │   │   ├── ArticlesController.php
 │   │   ├── CategoriesController.php
 │   │   ├── ArchivesController.php
+│   │   ├── SecurityController.php
 │   │   └── DefaultController.php
 │   ├── DataFixtures
 │   │   └── AppFixtures.php
@@ -62,11 +64,15 @@ MER_WEB
 │   ├── Entity
 │   │   ├── Author.php
 │   │   ├── Article.php
+│   │   ├── User.php
 │   │   └── ArtCategory.php
 │   ├── Repository
 │   │   ├── AuthorRepository.php
 │   │   ├── ArticleRepository.php
+│   │   ├── UserRepository.php
 │   │   └── ArtCategoryRepository.php
+│   ├── Security
+│   │   └── LoginAuthenticator.php
 │   └── Kernel.php
 ├── templates
 │   ├── articles
@@ -81,6 +87,8 @@ MER_WEB
 │   │   ├── plan.html.twig
 │   │   ├── contacts.html.twig
 │   │   └── index.html.twig
+│   ├── security
+│   │   └── login.html.twig
 │   └── base.html.twig
 ├── var (dossier de cache)
 ├── vendor (dossier de dépendances)
