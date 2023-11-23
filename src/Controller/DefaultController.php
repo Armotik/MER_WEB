@@ -69,10 +69,23 @@ class DefaultController extends AbstractController
     }
 
     #[Route('/plan_du_site', name: 'app_plan')]
-    public function plan(ArtCategoryRepository $artCategoryRepository): Response
+    public function plan(ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {
+
+        $articles = $articleRepository->createQueryBuilder("a")
+            ->innerJoin('a.id_category', 'c')
+            ->innerJoin('a.author', 'u')
+            ->addSelect('c')
+            ->addSelect('u')
+            ->orderBy('a.date', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        $lastTenArticles = array_slice($articles, 0, 10);
+
         return $this->render('default/plan.html.twig', [
             'categories' => $artCategoryRepository->findAll(),
+            'lastTenArticles' => $lastTenArticles,
         ]);
     }
 

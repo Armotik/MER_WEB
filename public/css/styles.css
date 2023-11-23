@@ -5,3 +5,7 @@ a {
 .main-title {
     line-height: 1.5em;
 }
+
+.underline-offset {
+    text-underline-offset:.5rem;
+}

@@ -1,10 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-
+{% block title %}
+    - Plan du site
 {% endblock %}
 
-{% block title %}
-- Plan du site
+{% block body %}
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center fs-1">Plan du site</h1>
+            </div>
+
+            <div class="col-12 pb-3">
+                <h2 class="mb-4 text-decoration-underline underline-offset">Catégories</h2>
+                <ul class="list-group list-group-flush">
+                    {% for category in categories %}
+                        <li class="p-1"><a href="{{ path('app_categories_category', {'categoryName': category.name}) }}">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+            <div class="col-12 pb-3">
+                <h2 class="mb-4 text-decoration-underline underline-offset">Archives</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="p-1"><a href="{{ path('app_archive', {'year': '2023'}) }}">2023</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="col-12 pb-3">
+                <h2 class="mb-4 text-decoration-underline underline-offset">Derniers articles</h2>
+                <ul class="list-group list-group-flush">
+                    {% for article in lastTenArticles %}
+                        <li class="p-1"><a href="{{ path('app_articles', {'name': article.title}) }}">{{ article.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <hr>
+            <div class="col-12 pb-3">
+                <h2 class="mb-4 text-decoration-underline underline-offset">Défaut</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="p-1"><a href="{{ path('app_default') }}">Accueil</a></li>
+                    <li class="p-1"><a href="{{ path('app_contacts') }}">Contact</a></li>
+                    <li class="p-1"><a href="{{ path('app_plan') }}">Plan du site</a></li>
+                    <li class="p-1"><a href="{{ path('app_mentions') }}">Mentions légales</a></li>
+                    <li class="p-1"><a href="{{ path('app_politique') }}">Politique de confidentialité</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
 {% endblock %}
 
