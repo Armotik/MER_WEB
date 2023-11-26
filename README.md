@@ -17,6 +17,7 @@ Date - Commit
 17/11/2023 - Correction des problèmes liés au dernier dépot git, finalisation des pages d'archives, de catégories et d'articles
 23/11/2023 - Ajout de la page de mentions légales et de la page du plan du site
 23/11/2023 - Ajout de la page de contact, initialisation de la partie connexion, ajoute de la page de connexion ainsi que d'un nouveau controller. Création d'une nouvelle entité et d'un nouveau repository. 
+26/11/2023 - Ajout et modification d'éléments dans la page mentions légales, finalisation de la page de politique de confidentialité, formulaire de connexion fini.
 ```
 
 ---
@@ -112,7 +113,7 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
-Dernière mise à jour : 23/11/2023
+Dernière mise à jour : 26/11/2023
 
 Bureau Des Étudiants La Rochelle Université
 
