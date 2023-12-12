@@ -15,6 +15,7 @@
     {% block stylesheets %}
     {% endblock %}
 
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
             crossorigin="anonymous"></script>
@@ -47,11 +48,6 @@
                         <path d="M21 21l-5.2-5.2"></path>
                     </svg>
                 </a>
-                {% if app.user %}
-                    <a class="btn btn-ssm btn-outline-secondary" href="#">Compte</a>
-                {% else %}
-                    <a class="btn btn-sm btn-outline-secondary" href="{{ path('app_login') }}">Connexion</a>
-                {% endif %}
             </div>
         </div>
     </header>

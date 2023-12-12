@@ -18,6 +18,7 @@ Date - Commit
 23/11/2023 - Ajout de la page de mentions légales et de la page du plan du site
 23/11/2023 - Ajout de la page de contact, initialisation de la partie connexion, ajoute de la page de connexion ainsi que d'un nouveau controller. Création d'une nouvelle entité et d'un nouveau repository. 
 26/11/2023 - Ajout et modification d'éléments dans la page mentions légales, finalisation de la page de politique de confidentialité, formulaire de connexion fini.
+12/12/2023 - Finalisation de la page de connexion, ajout d'une nouvelle entité avec repository (Comments) et modification de l'entité Article. Ajout d'un nouveau controller (AccountController) et modification des controller SecurityController (pour la gestion de compte) et ArticlesController (pour la gestion de commentaire - à finir). Ajout d'un service d'automodération des commentaires avec un fichier contenant des milliers de mots à bannir. Enfin, création d'un formulaire pour l'ajout d'un commentaire sur un article.
 ```
 
 ---
@@ -44,6 +45,13 @@ MER_WEB
 ├── bin
 │   └── console
 ├── config (dossier de configuration)
+│   ├── packages (dossier)
+│   ├── routes (dossier)
+│   ├── services.yaml
+│   ├── bundles.php 
+│   ├── routes.yaml
+│   ├── preload.php 
+│   └── badwords.txt
 ├── migrations (dossier de migrations)
 ├── public
 │   ├── images
@@ -54,6 +62,7 @@ MER_WEB
 │   └── index.php
 ├── src
 │   ├── Controller
+│   │   ├── AccountController.php
 │   │   ├── ArticlesController.php
 │   │   ├── CategoriesController.php
 │   │   ├── ArchivesController.php
@@ -61,21 +70,28 @@ MER_WEB
 │   │   └── DefaultController.php
 │   ├── DataFixtures
 │   │   └── AppFixtures.php
-│   │   └── DefaultController.php
 │   ├── Entity
 │   │   ├── Author.php
 │   │   ├── Article.php
 │   │   ├── User.php
+│   │   ├── Comments.php
 │   │   └── ArtCategory.php
+│   ├── Form
+│   │   └── CommentFormType.php
 │   ├── Repository
 │   │   ├── AuthorRepository.php
 │   │   ├── ArticleRepository.php
 │   │   ├── UserRepository.php
+│   │   ├── CommentsRepository.php
 │   │   └── ArtCategoryRepository.php
 │   ├── Security
 │   │   └── LoginAuthenticator.php
+│   ├── Service
+│   │   └── AutoModerationService.php
 │   └── Kernel.php
 ├── templates
+│   ├── account
+│   │   └── index.html.twig
 │   ├── articles
 │   │   └── index.html.twig
 │   ├── archives
@@ -113,7 +129,7 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
-Dernière mise à jour : 26/11/2023
+Dernière mise à jour : 12/12/2023
 
 Bureau Des Étudiants La Rochelle Université
 

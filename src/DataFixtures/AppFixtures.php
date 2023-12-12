@@ -5,11 +5,22 @@ namespace App\DataFixtures;
 use App\Entity\ArtCategory;
 use App\Entity\Article;
 use App\Entity\Author;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+
+    /**
+     * AppFixtures constructor.
+     * @param UserPasswordHasherInterface $passwordHasher
+     */
+    public function __construct(private UserPasswordHasherInterface $passwordHasher)
+    {
+    }
+
     public function load(ObjectManager $manager): void
     {
         $cat1 = new ArtCategory();
@@ -43,8 +54,8 @@ class AppFixtures extends Fixture
         $cat6->setColor("#f1c40f");
 
         $cat7 = new ArtCategory();
-        $cat7->setName('Résidences');
-        $cat7->setDescription('Articles en rapport avec les résidences universitaires');
+        $cat7->setName('Actualités');
+        $cat7->setDescription('Articles en rapport avec les actualités universitaires');
         $cat7->setColor("#3498db");
 
         $cat8 = new ArtCategory();
@@ -53,9 +64,14 @@ class AppFixtures extends Fixture
         $cat8->setColor("#1abc9c");
 
         $cat9 = new ArtCategory();
-        $cat9->setName('Autres');
-        $cat9->setDescription('Articles en rapport avec l\'université mais qui ne rentrent pas dans les autres catégories');
-        $cat9->setColor("#95a5a6");
+        $cat9->setName('Astuces');
+        $cat9->setDescription('Articles en rapport avec des astuces pour les étudiants');
+        $cat9->setColor("#f39c12");
+
+        $cat10 = new ArtCategory();
+        $cat10->setName('Autres');
+        $cat10->setDescription('Articles en rapport avec l\'université mais qui ne rentrent pas dans les autres catégories');
+        $cat10->setColor("#95a5a6");
 
         $author1 = new Author();
         $author1->setFirstname('Jean');
@@ -78,6 +94,7 @@ class AppFixtures extends Fixture
         $art1->addAuthor($author1);
         $art1->setFeatured(true);
         $art1->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+        $art1->setYoutubeLink("DsemU6yb7hA?si=D6XjTJUvQ1_nFPll");
 
         $art2 = new Article();
         $art2->setTitle('Lorem ipsum 2');
@@ -88,6 +105,7 @@ class AppFixtures extends Fixture
         $art2->addAuthor($author2);
         $art2->setFeatured(true);
         $art2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+        $art2->setYoutubeLink("DsemU6yb7hA?si=D6XjTJUvQ1_nFPll");
 
         $art3 = new Article();
         $art3->setTitle('Lorem ipsum 3');
@@ -98,6 +116,7 @@ class AppFixtures extends Fixture
         $art3->addAuthor($author1);
         $art3->setFeatured(false);
         $art3->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+        $art3->setYoutubeLink("DsemU6yb7hA?si=D6XjTJUvQ1_nFPll");
 
         $art4 = new Article();
         $art4->setTitle('Lorem ipsum 4');
@@ -108,6 +127,16 @@ class AppFixtures extends Fixture
         $art4->addAuthor($author2);
         $art4->setFeatured(false);
         $art4->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl eget aliquam aliquet, nunc nisl aliquet nunc, quis aliquam nisl nisl vitae nisl.');
+        $art4->setYoutubeLink("DsemU6yb7hA?si=D6XjTJUvQ1_nFPll");
+
+        $user1 = new User();
+        $user1->setEmail('admin@example.com');
+        $user1->setPassword($this->passwordHasher->hashPassword($user1, 'root'));
+        $user1->setRoles(['ROLE_ADMIN']);
+        $user1->setDate(new \DateTimeImmutable());
+        $user1->setName('Admin');
+        $user1->setCountry('France');
+        $user1->setCity('La Rochelle');
 
         $manager->persist($cat1);
         $manager->persist($cat2);
@@ -118,6 +147,7 @@ class AppFixtures extends Fixture
         $manager->persist($cat7);
         $manager->persist($cat8);
         $manager->persist($cat9);
+        $manager->persist($cat10);
 
         $manager->persist($author1);
         $manager->persist($author2);
@@ -126,6 +156,8 @@ class AppFixtures extends Fixture
         $manager->persist($art2);
         $manager->persist($art3);
         $manager->persist($art4);
+
+        $manager->persist($user1);
 
         $manager->flush();
     }
