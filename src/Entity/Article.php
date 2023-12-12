@@ -28,7 +28,7 @@ class Article
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $thumbnail_url = null;
 
-    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\ManyToOne(targetEntity: ArtCategory::class, inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?ArtCategory $id_category = null;
 

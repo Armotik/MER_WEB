@@ -1,0 +1,12 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title %} MER | Panel d'administration {% endblock %}
+
+{% block page_content %}
+
+    <ul>
+        <li style="margin: 15px"><a href="{{ path('app_account') }}">Retour à votre compte</a></li>
+        <li style="margin: 15px"><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+    </ul>
+
+{% endblock %}

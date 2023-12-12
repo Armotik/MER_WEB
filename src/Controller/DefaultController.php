@@ -68,7 +68,7 @@ class DefaultController extends AbstractController
         );
     }
 
-    #[Route('/plan_du_site', name: 'app_plan')]
+    #[Route('/plan du site', name: 'app_plan')]
     public function plan(ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {
 
@@ -89,7 +89,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/mentions_legales', name: 'app_mentions')]
+    #[Route('/mentions_ egales', name: 'app_mentions')]
     public function mentions(ArtCategoryRepository $artCategoryRepository): Response
     {
         return $this->render('default/mentions.html.twig', [
@@ -97,7 +97,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/politique_de_confidentialite', name: 'app_politique')]
+    #[Route('/politique de confidentialite', name: 'app_politique')]
     public function politique(ArtCategoryRepository $artCategoryRepository): Response
     {
         return $this->render('default/politique.html.twig', [

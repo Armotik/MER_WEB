@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArchiveController extends AbstractController
 {
-    #[Route('/archive/{year}', name: 'app_archive', requirements: ['year' => '\d{4}'])]
+    #[Route('/archives/{year}', name: 'app_archive', requirements: ['year' => '\d{4}'])]
     public function index(int $year, ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {
 

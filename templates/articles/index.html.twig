@@ -42,23 +42,39 @@
                 </div>
             {% endif %}
             <hr>
-            <div class="d-flex justify-content-center mt-5 mb-5">
-                <form action="{{ path('app_articles', {'name': article.title}) }}" method="post" class="col-6">
-                    {{ form_start(commentForm) }}
-                    {{ form_row(commentForm.Pseudo, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Pseudonyme'}}) }}
-                    {{ form_row(commentForm.Commentaire, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Commentaire'}}) }}
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                    {{ form_end(commentForm) }}
-                </form>
+            <div class="d-flex justify-content-center mt-5 mb-5 align-items-center flex-column" id="commentaires">
+                <h2 class="text-center mb-5">Commentaires</h2>
+                <div class="col-6">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                    {% for message in app.flashes('danger') %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                <div class="col-6">
+                    <form action="{{ path('app_articles', {'name': article.title}) }}" method="post" class="col-6 w-100">
+                        {{ form_start(commentForm) }}
+                        {{ form_row(commentForm.Pseudo, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Pseudonyme'}}) }}
+                        {{ form_row(commentForm.Commentaire, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Commentaire'}}) }}
+                        <button type="submit" class="btn w-100" style="background-color: {{ article.idcategory.color }}; color: #fff">Envoyer</button>
+                        {{ form_end(commentForm) }}
+                    </form>
+                </div>
             </div>
             <hr>
             <div class="d-flex justify-content-center mt-5 mb-5">
                 <div class="col-6">
                     {% if article.comments|length > 0 %}
-                        {% for comment in article.comments %}
+                        {% for comment in article.comments|reverse %}
                             <p class="mb-0">Par <strong>{{ comment.pseudonym }}</strong> le
                                 {{ comment.date|date('d/m/Y') }}</p>
                             <p class="mb-5">{{ comment.content }}</p>
+                            {% if app.user and app.user.roles[0] == 'ROLE_ADMIN' %}
+                                <a href="{{ path('app_comment_delete', {'name': article.title, 'commentId': comment.id}) }}"
+                                   class="btn btn-danger mb-3 w-100">Supprimer</a>
+                            {% endif %}
+                            <hr>
                         {% endfor %}
                     {% else %}
                         <p class="mb-5">Aucun commentaire pour le moment</p>

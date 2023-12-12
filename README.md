@@ -19,6 +19,7 @@ Date - Commit
 23/11/2023 - Ajout de la page de contact, initialisation de la partie connexion, ajoute de la page de connexion ainsi que d'un nouveau controller. Création d'une nouvelle entité et d'un nouveau repository. 
 26/11/2023 - Ajout et modification d'éléments dans la page mentions légales, finalisation de la page de politique de confidentialité, formulaire de connexion fini.
 12/12/2023 - Finalisation de la page de connexion, ajout d'une nouvelle entité avec repository (Comments) et modification de l'entité Article. Ajout d'un nouveau controller (AccountController) et modification des controller SecurityController (pour la gestion de compte) et ArticlesController (pour la gestion de commentaire - à finir). Ajout d'un service d'automodération des commentaires avec un fichier contenant des milliers de mots à bannir. Enfin, création d'un formulaire pour l'ajout d'un commentaire sur un article.
+12/12/2023 - Finalisation de l'espace commentaire pseudonymisé. Début de la gestion admin, ajout du dashboard et de la page de gestion des catégory et des articles (à finir).
 ```
 
 ---
@@ -62,6 +63,10 @@ MER_WEB
 │   └── index.php
 ├── src
 │   ├── Controller
+│   │   ├── Admin
+│   │   │   ├── DashboardController.php
+│   │   │   ├── ArtCategoryCrudController.php
+│   │   │   └── ArticleCrudController.php
 │   │   ├── AccountController.php
 │   │   ├── ArticlesController.php
 │   │   ├── CategoriesController.php
@@ -87,11 +92,14 @@ MER_WEB
 │   ├── Security
 │   │   └── LoginAuthenticator.php
 │   ├── Service
+│   │   ├── ResponseCode.php
 │   │   └── AutoModerationService.php
 │   └── Kernel.php
 ├── templates
 │   ├── account
 │   │   └── index.html.twig
+│   ├── admin
+│   │   └── dashboard.html.twig
 │   ├── articles
 │   │   └── index.html.twig
 │   ├── archives
