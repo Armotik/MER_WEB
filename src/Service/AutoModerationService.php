@@ -12,6 +12,11 @@ class AutoModerationService
     private array $blacklist = [];
     private string $badwordPath;
 
+    /**
+     * AutoModerationService constructeur.
+     * @param ArticleRepository $articleRepository Repository des articles
+     * @param string $badwordsPath Chemin vers le fichier contenant les mots interdits
+     */
     public function __construct(private readonly ArticleRepository $articleRepository, string $badwordsPath)
     {
         $this->badwordPath = $badwordsPath;
@@ -19,8 +24,9 @@ class AutoModerationService
 
 
     /**
-     * @param string $content
-     * @return array [bool, httpCode]
+     * Regarde si le contenu du commentaire est valide
+     * @param string $content Contenu du commentaire
+     * @return array [bool, ResponseCode] Si le contenu est valide ou non
      */
     public function isContentValid(string $content): array
     {
@@ -46,6 +52,11 @@ class AutoModerationService
         return [true, ResponseCode::OK];
     }
 
+    /**
+     * Regarde si le commentaire est un spam
+     * @param string $content Contenu du commentaire
+     * @return bool Si le commentaire est un spam ou non
+     */
     public function spamProtection(string $content): bool
     {
         // Spam protection

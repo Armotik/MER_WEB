@@ -19,21 +19,46 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticlesController extends AbstractController
 {
     /**
-     * @throws NonUniqueResultException
+     * Route pour accéder à la page d'accueil
+     * @param ArtCategoryRepository $artCategoryRepository Repository pour les catégories d'articles
+     * @param ArticleRepository $articleRepository Repository pour les articles
+     * @return Response Retourne la page d'accueil
+     * @throws NonUniqueResultException Exception si plusieurs articles ont le même titre
      */
     #[Route('/articles/{name}', name: 'app_articles')]
     public function index(string $name, ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository, Request $request, AutoModerationService $autoModerationService, CommentsRepository $commentsRepository, EntityManagerInterface $entityManager): Response
     {
 
-        $article = $articleRepository->createQueryBuilder("a")
-            ->innerJoin('a.id_category', 'c')
-            ->innerJoin('a.author', 'u')
-            ->addSelect('c')
-            ->addSelect('u')
-            ->where('a.title = :name')
-            ->setParameter('name', $name)
-            ->getQuery()
-            ->getOneOrNullResult();
+        // get the article by name then check if it exists and if the article has author
+
+        $article = $articleRepository->findOneBy(['title' => $name]);
+
+        if (count($article->getAuthor()) <= 0) {
+            $article = $articleRepository->createQueryBuilder("a")
+                ->innerJoin('a.id_category', 'c')
+                ->addSelect('c')
+                ->where('a.title = :name')
+                ->setParameter('name', $name)
+                ->getQuery()
+                ->getOneOrNullResult();
+
+        } else {
+
+            $article = $articleRepository->createQueryBuilder("a")
+                ->innerJoin('a.id_category', 'c')
+                ->innerJoin('a.author', 'u')
+                ->addSelect('c')
+                ->addSelect('u')
+                ->where('a.title = :name')
+                ->setParameter('name', $name)
+                ->getQuery()
+                ->getOneOrNullResult();
+        }
+
+        if (!$article) {
+
+            return $this->redirectToRoute('app_default');
+        }
 
         $form = $this->createForm(CommentFormType::class);
         $form->handleRequest($request);
@@ -104,6 +129,12 @@ class ArticlesController extends AbstractController
     }
 
     /**
+     * Route pour supprimer un commentaire
+     * @param string $name Nom de l'article
+     * @param int $commentId Id du commentaire
+     * @param CommentsRepository $commentsRepository Repository pour les commentaires
+     * @param EntityManagerInterface $entityManager Interface pour gérer les entités
+     * @return Response Retourne la page de l'article
      * @throws NonUniqueResultException
      */
     #[Route('/articles/{name}/commentaires/{commentId}/supprimer', name: 'app_comment_delete')]

@@ -10,6 +10,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+    /**
+     * Route pour accéder à la page de connexion
+     * @param AuthenticationUtils $authenticationUtils Utilitaire d'authentification
+     * @param ArtCategoryRepository $artCategoryRepository Repository pour les catégories d'articles
+     * @return Response Retourne la page de connexion
+     */
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils, ArtCategoryRepository $artCategoryRepository): Response
     {
@@ -29,6 +35,10 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+     * Route pour se déconnecter
+     * @return void
+     */
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {

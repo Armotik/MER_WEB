@@ -52,9 +52,9 @@
 
                                 {% for author in article.author %}
                                     {% if article.author|length == 1 %}
-                                        {{ author.firstname }} {{ author.name }}
+                                        <a href="#"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} </a>
                                     {% else %}
-                                        <a href="#"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} {% if not loop.last %}</a>, {% endif %}
+                                        <a href="#"> {{ author.firstname }} {% if author.name %}{{ author.name }} {% endif %} </a> {% if not loop.last %}, {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </p>
@@ -94,7 +94,6 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="text-white fw-bold">Continuez à lire...</a>
             </p>
         </div>
         </div>

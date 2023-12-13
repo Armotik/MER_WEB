@@ -10,6 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArchiveController extends AbstractController
 {
+    /**
+     * Route pour accéder à la page d'archive
+     * @param int $year Année de l'archive
+     * @param ArtCategoryRepository $artCategoryRepository Repository pour les catégories d'articles
+     * @param ArticleRepository $articleRepository Repository pour les articles
+     * @return Response Retourne la page d'archive
+     */
     #[Route('/archives/{year}', name: 'app_archive', requirements: ['year' => '\d{4}'])]
     public function index(int $year, ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {

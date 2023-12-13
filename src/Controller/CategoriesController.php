@@ -11,6 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoriesController extends AbstractController
 {
 
+    /**
+     * Route pour accéder à la page de catégorie
+     * @param string $categoryName Nom de la catégorie
+     * @param ArtCategoryRepository $artCategoryRepository Repository pour les catégories d'articles
+     * @param ArticleRepository $articleRepository Repository pour les articles
+     * @return Response Retourne la page de catégorie
+     */
     #[Route('/categories/{categoryName}', name: 'app_categories_category')]
     public function index(string $categoryName, ArtCategoryRepository $artCategoryRepository, ArticleRepository $articleRepository): Response
     {

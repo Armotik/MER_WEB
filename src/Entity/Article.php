@@ -51,6 +51,8 @@ class Article
     {
         $this->author = new ArrayCollection();
         $this->comments = new ArrayCollection();
+
+        $this->date = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -178,8 +180,22 @@ class Article
         return $this->youtubeLink;
     }
 
+
     public function setYoutubeLink(?string $youtubeLink): static
     {
+        //get the video id
+        if (str_contains($youtubeLink, 'watch?v=')) {
+            $youtubeLink = str_replace('watch?v=', '', $youtubeLink);
+        }
+
+        if (str_contains($youtubeLink, 'youtu.be/')) {
+            $youtubeLink = str_replace('youtu.be/', '', $youtubeLink);
+        }
+
+        if (str_contains($youtubeLink, 'https://')) {
+            $youtubeLink = str_replace('https://', '', $youtubeLink);
+        }
+
         $this->youtubeLink = $youtubeLink;
 
         return $this;

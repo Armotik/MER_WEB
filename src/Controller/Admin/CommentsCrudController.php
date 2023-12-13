@@ -2,14 +2,15 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\ArtCategory;
+use App\Entity\Article;
+use App\Entity\Comments;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class ArtCategoryCrudController extends AbstractCrudController
+class CommentsCrudController extends AbstractCrudController
 {
     /**
      * Retourne le FQCN de l'entité gérée par le contrôleur.
@@ -17,7 +18,7 @@ class ArtCategoryCrudController extends AbstractCrudController
      */
     public static function getEntityFqcn(): string
     {
-        return ArtCategory::class;
+        return Comments::class;
     }
 
     /**
@@ -29,12 +30,11 @@ class ArtCategoryCrudController extends AbstractCrudController
     {
         return $crud
             ->renderContentMaximized()
-            ->setEntityLabelInSingular('Catégorie')
-            ->setEntityLabelInPlural('Catégories')
+            ->setEntityLabelInSingular('Commentaire')
+            ->setEntityLabelInPlural('Commentaires')
             ->setEntityPermission('ROLE_ADMIN')
             ->setPageTitle('index', 'MER | Panel d\'administration - %entity_label_plural%')
-            ->setPaginatorPageSize(30)
-            ;
+            ->setPaginatorPageSize(30);
     }
 
     /**
@@ -45,9 +45,19 @@ class ArtCategoryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'Nom'),
-            TextField::new('color', 'Couleur'),
-            TextEditorField::new('description', 'Description'),
+            AssociationField::new('article', 'Article')
+                ->setFormTypeOptions([
+                    'class' => Article::class,
+                    'choice_label' => 'title',
+                ])
+                ->setRequired(true)
+                ->setHelp('Sélectionnez l\'article auquel est rattaché le commentaire'),
+            TextField::new('pseudonym', 'Pseudonyme')
+                ->setRequired(true)
+                ->setHelp('Entrez le pseudonyme de l\'auteur du commentaire'),
+            TextareaField::new('content', 'Contenu')
+                ->setRequired(true)
+                ->setHelp('Entrez le contenu du commentaire'),
         ];
     }
 }

@@ -20,6 +20,8 @@ Date - Commit
 26/11/2023 - Ajout et modification d'éléments dans la page mentions légales, finalisation de la page de politique de confidentialité, formulaire de connexion fini.
 12/12/2023 - Finalisation de la page de connexion, ajout d'une nouvelle entité avec repository (Comments) et modification de l'entité Article. Ajout d'un nouveau controller (AccountController) et modification des controller SecurityController (pour la gestion de compte) et ArticlesController (pour la gestion de commentaire - à finir). Ajout d'un service d'automodération des commentaires avec un fichier contenant des milliers de mots à bannir. Enfin, création d'un formulaire pour l'ajout d'un commentaire sur un article.
 12/12/2023 - Finalisation de l'espace commentaire pseudonymisé. Début de la gestion admin, ajout du dashboard et de la page de gestion des catégory et des articles (à finir).
+12/12/2023 - Create LICENCE
+13/12/2023 - Finalisation de l'admin panel et ajout de PHPDoc.
 ```
 
 ---
@@ -66,6 +68,9 @@ MER_WEB
 │   │   ├── Admin
 │   │   │   ├── DashboardController.php
 │   │   │   ├── ArtCategoryCrudController.php
+│   │   │   ├── AuthorCrudController.php
+│   │   │   ├── CommentsCrudController.php
+│   │   │   ├── UserCrudController.php
 │   │   │   └── ArticleCrudController.php
 │   │   ├── AccountController.php
 │   │   ├── ArticlesController.php
@@ -137,7 +142,7 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
-Dernière mise à jour : 12/12/2023
+Dernière mise à jour : 13/12/2023
 
 Bureau Des Étudiants La Rochelle Université
 

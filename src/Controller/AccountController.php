@@ -9,6 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccountController extends AbstractController
 {
+    /**
+     * Route pour accéder à la page de compte
+     * @param ArtCategoryRepository $artCategoryRepository Repository pour les catégories d'articles
+     * @return Response Retourne la page de compte
+     */
     #[Route('/compte', name: 'app_account')]
     public function index(ArtCategoryRepository $artCategoryRepository): Response
     {
