@@ -6,7 +6,8 @@
 
     <main class="container">
         <div class="p-4 p-md-5 mb-4 text-black rounded">
-            <div class="p-4 p-md-5 mb-4 text-white rounded" style="background-image: url(https://www.univ-larochelle.fr/wp-content/uploads/jpg/page-daccueil-321.jpg); background-position: center left; border-radius: 8px">
+            <div class="p-4 p-md-5 mb-4 text-white rounded"
+                 style="background-image: url(https://www.univ-larochelle.fr/wp-content/uploads/jpg/page-daccueil-321.jpg); background-position: center left; border-radius: 8px">
                 <div class="col-md-6 px-0">
                     <h1 class="display-4 fst-italic">Média Étudiant Rochelais (MER)</h1>
                     <p class="lead my-3">Le site d'information des étudiants de La Rochelle</p>
@@ -23,10 +24,11 @@
                             <div class="col p-4 d-flex flex-column position-static">
                                 <strong class="d-inline-block mb-2"
                                         style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
-                                <h3 class="mb-0">{{ article.title }}</h3>
+                                <h3 class="mb-0 text-body-emphasis">{{ article.title }}</h3>
                                 <div class="mb-1 text-muted">{{ article.date|date('d M', "Europe/Paris") }}</div>
-                                <p class="card-text mb-auto">{{ article.content|striptags|slice(0, 150) }}...</p>
-                                <a href="{{ path('app_articles', {'name': article.title}) }}" class="stretched-link">Continuez à lire...</a>
+                                <p class="card-text mb-auto text-body-emphasis">{{ article.content|striptags|slice(0, 150) }}...</p>
+                                <a href="{{ path('app_articles', {'name': article.title}) }}" class="stretched-link">Continuez
+                                    à lire...</a>
                             </div>
                             <div class="col-auto d-none d-lg-block">
                                 <img src="{{ article.thumbnailurl }}" alt="image de l'article"
@@ -38,17 +40,22 @@
             </div>
             <div class="row g-5">
                 <div class="col-md-8 mt-3">
-                    <h3 class="pb-4 mt-5 fst-italic border-bottom">Les derniers articles</h3>
+                    <h3 class="pb-4 mt-5 fst-italic border-bottom text-body-emphasis">Les derniers articles</h3>
 
                     {% for article in lastTenArticles %}
 
                         <article class="blog-post mt-5 mb-5">
-                            <h2 class="blog-post-title">{{ article.title }}</h2>
-                            <p class="blog-post-meta">
+                            <h2 class="blog-post-title text-body-emphasis">{{ article.title }}</h2>
+                            <p class="blog-post-meta text-body-emphasis">
                                 <strong class="d-inline-block mb-2"
                                         style="color: {{ article.idcategory.color }}">{{ article.idcategory.name }}</strong>
                                 |
-                                {{ article.date|date('d M Y', "Europe/Paris") }} par
+
+                                <strong class="text-muted">{{ article.date|date('d M Y', "Europe/Paris") }}</strong>
+
+                                {% if article.author|length > 0 %}
+                                    par
+                                {% endif %}
 
                                 {% for author in article.author %}
                                     {% if article.author|length == 1 %}
@@ -59,12 +66,18 @@
                                 {% endfor %}
                             </p>
 
-                            <p>{{ article.description }}</p>
+                            <p class="text-body-emphasis">{{ article.description }}</p>
                             <hr>
-                            <p>{{ article.content|striptags }}</p>
+                            <p class="text-body-emphasis">{{ article.content|striptags }}</p>
+                            <div class="col-md-6">
+                                <a href="{{ path('app_articles', {'name': article.title}) }}"
+                                   class="link-primary">Continuez à lire...</a>
+                            </div>
                         </article>
 
-                        {% if not loop.last %}<hr>{% endif %}
+                        {% if not loop.last %}
+                            <hr>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 <div class="col-md-4">
@@ -78,13 +91,13 @@
                             </p>
                         </div>
                         <div class="p-4">
-                            <h4 class="fst-italic">Archives</h4>
+                            <h4 class="fst-italic text-body-emphasis">Archives</h4>
                             <ol class="list-unstyled mb-0">
-                                <li class="mb-2"><a href="{{ path('app_archive', {'year': 2023}) }}">2023</a></li>
+                                <li class="mb-2 text-body-emphasis"><a href="{{ path('app_archive', {'year': 2023}) }}">2023</a></li>
                             </ol>
                         </div>
                         <div class="p-4">
-                            <h4 class="fst-italic">Contacts</h4>
+                            <h4 class="fst-italic text-body-emphasis">Contacts</h4>
                             <ol class="list-unstyled">
                                 <li class="mb-2"><a href="#">Instagram</a></li>
                                 <li class="mb-2"><a href="#">Discord</a></li>
@@ -94,8 +107,6 @@
                     </div>
                 </div>
             </div>
-            </p>
-        </div>
         </div>
     </main>
 

@@ -22,6 +22,7 @@ Date - Commit
 12/12/2023 - Finalisation de l'espace commentaire pseudonymisé. Début de la gestion admin, ajout du dashboard et de la page de gestion des catégory et des articles (à finir).
 12/12/2023 - Create LICENCE
 13/12/2023 - Finalisation de l'admin panel et ajout de PHPDoc.
+28/12/2023 - Ajout d'une fonctionnalité de thême sombre et clair.
 ```
 
 ---
@@ -59,6 +60,9 @@ MER_WEB
 ├── public
 │   ├── images
 │   │   └── logo_v1_bgr.png
+│   ├── js
+│   │   ├── colorModeToggler.js
+│   │   └── index.js
 │   ├── css
 │   │   ├── style.css
 │   │   └── normalize.css
@@ -142,7 +146,7 @@ https://github.com/Armotik/MER_WEB
 
 Copyrigth © 2023 Armotik - Tous droits réservés
 
-Dernière mise à jour : 13/12/2023
+Dernière mise à jour : 28/12/2023
 
 Bureau Des Étudiants La Rochelle Université
 

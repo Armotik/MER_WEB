@@ -32,7 +32,8 @@ class AutoModerationService
     {
         if (empty($content) || strlen($content) < 5 || strlen($content) > 255) return [false, ResponseCode::INVALID_LENGTH];
 
-        if (str_contains($content, '<script>')) return [false, ResponseCode::INVALID_CONTENT];
+        // todo
+        if (stripos($content, '<script>') !== false) return [false, ResponseCode::INVALID_CONTENT];
 
         if (empty($this->blacklist)) {
 
